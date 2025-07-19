@@ -53,12 +53,12 @@ body{
   width: 100%;
   z-index: 1000;
   padding: 15px 0;
-  background-color: #202020;
+  background-color: #3d3b3b;
   transition: padding 0.3s;
 }
 
 .header-area.sticky {
-  padding: 5px 0;
+  padding: 4px 0;
 }
 
 .header{
@@ -131,7 +131,7 @@ body{
    display:flex;
    justify-content: space-around;
    align-items: center;
-   padding-top: 100px
+   padding-top: 5rem
 } 
 
 .FirstElement.adjusted-padding {
@@ -627,8 +627,12 @@ body{
   }
 
   .header-area {
-   padding: 10px 0;
+   padding: 15px 0;
     position: fixed;
+  }
+
+  .FirstElement {
+    padding-top: 80px;
   }
 
   .header {
@@ -675,10 +679,6 @@ body{
 
   .header i{
     color: #e5e5e5;
-  }
-
-  .FirstElement {
-    padding-top: 80px;
   }
 
   .profile-text{
