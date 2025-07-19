@@ -632,68 +632,36 @@ body{
   }
 
   .header {
-    justify-content: flex-end; /* Align to right */
+    justify-content: center;
     padding: 0;
   }
   
   .header ul{
-    display: none;
-    position: fixed;
-    top: 0;
-    right: 0;
+   display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     width: 100%;
-    height: 100vh;
-    background: #2a2a2a;
-    padding: 80px 20px 20px;
-    margin: 0;
-    z-index: 1000;
-    flex-direction: column;
-    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
-    transform: translateX(100%);
-    transition: transform 0.3s ease-out;
-  }
-
-  .header ul.show {
-    display: flex;
-    transform: translateX(0);
+    padding: 0;
+    height: auto;
+    position: static;
+    background: transparent;
+    box-shadow: none;
+    transform: none;
   }
 
   .header ul li {
-    margin: 0;
+    margin: 0 5px;
     padding: 0;
-    text-align: right;
   }
 
   .header ul li a {
-    padding: 15px 0;
-    display: block;
-    border-bottom: 1px solid #444;
-    font-size: 16px;
-    text-align: right;
-  }
-
-  .header ul li:last-child a {
+    padding: 8px 12px;
+    font-size: 14px;
     border-bottom: none;
   }
 
-  .menu_icon {
-        display: block !important;
-        font-size: 24px;
-        color: #fff;
-        cursor: pointer;
-        z-index: 1001;
-        padding: 10px 15px;
-
-
-  .close-btn {
-    display: none;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    font-size: 24px;
-    color: #fff;
-    cursor: pointer;
-    z-index: 1001;
+  .menu_icon, .close-btn {
+    display: none !important;
   }
 
   .no-scroll {
