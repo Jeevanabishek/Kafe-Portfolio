@@ -52,13 +52,13 @@ body{
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 15px 0;
+  padding: 10px 0;
   background-color: #3d3b3b;
   transition: padding 0.3s;
 }
 
 .header-area.sticky {
-  padding: 4px 0;
+  padding: 5px 0;
 }
 
 .header{
@@ -627,7 +627,7 @@ body{
   }
 
   .header-area {
-   padding: 15px 0;
+   padding: 10px 0;
     position: fixed;
   }
 
