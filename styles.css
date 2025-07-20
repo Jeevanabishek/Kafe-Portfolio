@@ -587,99 +587,68 @@ body{
 
  /*------------------- Responsive Design on small screen -------------------*/
 
-/* Medium layout */
-@media only screen and (min-width:1000px) and (max-width:1200px){
-  .container{
-    width: 970px;
-  }
-}
-
-@media(max-width:1050px){
-  .FirstElement{ 
-    flex-direction: column;
-    padding-top: 2rem;
-  }
-  .profile-text{
-    padding: 40px 0px;
-  }
-}
-
-
-
-/* tablet layout */
-@media only screen and (min-width:768px) and (max-width:999px){
-  .container{
-    width: 750px;
-  } 
-}  
-
 
 /* Mobile Layout */
 @media only screen and (max-width: 767px) {
   .container {
-    width: 90%;
-    max-width: 350px;
-    padding: 0 15px;
+    width: 100%;
+    max-width: none;
+    padding: 0 10px;
   }
 
   .header-area {
-    padding: 15px 0;
-    position: fixed;
-    top: 0;
-    left: 0;
+    padding: 10px 0;
+    position: static; /* Make header static */
+    top: auto;
+    left: auto;
     width: 100%;
-    z-index: 1000;
+    z-index: auto;
     background-color: #3d3b3b;
   }
 
   .header {
-    justify-content: right;
+    display: flex;
+    justify-content: center;
     padding: 0;
   }
 
   .header ul {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: right;
-    row-gap: 10px;
+    flex-wrap: nowrap; /* Single row */
+    overflow-x: auto; /* Scroll if overflow */
+    justify-content: flex-start;
     width: 100%;
     padding: 0;
-    height: auto;
-    position: static;
+    margin: 0;
+    list-style: none;
     background: transparent;
     box-shadow: none;
-    transform: none;
+    scrollbar-width: none; /* Firefox */
   }
 
-  .header ul.show {
-    display: flex;
-    transform: translateX(0);
+  .header ul::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
   }
 
   .header ul li {
-    width: 45%;
-    margin: 5px;
+    flex: 0 0 auto;
+    margin: 0 8px;
     padding: 0;
-    text-align: right;
+    text-align: center;
   }
 
   .header ul li a {
-    display: block;
-    padding: 10px;
+    display: inline-block;
+    padding: 10px 6px;
     font-size: 14px;
-    border-bottom: none;
-    word-break: break-word;
     color: white;
     text-decoration: none;
+    white-space: nowrap;
   }
 
   .header ul li a.active {
     color: #fed700;
     font-weight: 600;
-  }
-
-  .header i {
-    color: #e5e5e5;
   }
 
   .menu_icon,
@@ -692,7 +661,7 @@ body{
   }
 
   .FirstElement {
-    padding-top: 80px;
+    padding-top: 40px;
   }
 
   .profile-text {
