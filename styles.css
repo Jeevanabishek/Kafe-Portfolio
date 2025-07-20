@@ -637,28 +637,6 @@ body{
     padding: 0;
   }
 
-  .navbar {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-  }
-
-  .navbar li {
-    margin: 5px 8px;
-    text-align: center;
-    flex: 0 0 calc(50% - 16px); /* Two items per row */
-  }
-
-  .navbar li a {
-    display: block;
-    padding: 8px 0;
-    font-size: 16px;
-    white-space: nowrap;
-  }
-
   .header ul{
     display: flex;
     flex-wrap: wrap;
@@ -712,10 +690,6 @@ body{
   .FirstElement {
     padding-top: 120px; /* Reduced from 300px to account for compact nav */
     flex-direction: column;
-  }
-
-  .profile-text{
-    padding: 0 1rem;
   }
 
   .btn-group {
