@@ -587,57 +587,64 @@ body{
 
  /*------------------- Responsive Design on small screen -------------------*/
 
+
 /* Mobile Layout */
-@media only screen and (max-width: 767px) {
-  .container {
-    width: 100%;
-    max-width: none;
-    padding: 0 10px;
+@media only screen and (max-width:767px){
+  .container{
+    width: 90%;
+    max-width: 350px;
+    padding: 0 15px;
   }
 
   .header-area {
-    padding: 10px 0;
-    position: static;
-    width: 100%;
-    z-index: auto;
-    background-color: #3d3b3b;
-    margin-bottom: 80px; /* ✅ Space below navbar */
+    padding: 15px 0;
+    position: fixed;
   }
 
   .header {
-    display: flex;
     justify-content: center;
-    flex-wrap: wrap;
     padding: 0;
   }
 
-  .header ul {
+  .header ul{
     display: flex;
-    flex-wrap: wrap; /* ✅ Allow two rows */
+    flex-wrap: wrap;
     justify-content: center;
     width: 100%;
     padding: 0;
-    margin: 0;
-    list-style: none;
+    height: auto;
+    position: static;
     background: transparent;
     box-shadow: none;
-    row-gap: 10px; /* ✅ Space between rows */
+    transform: none;
+  }
+
+  .header ul.show {
+    display: flex;
+    transform: translateX(0);
   }
 
   .header ul li {
-    width: 45%; /* ✅ Two items per row */
-    margin: 5px 0;
+    margin: 0 5px;
     padding: 0;
-    text-align: center;
   }
 
   .header ul li a {
-    display: inline-block;
-    padding: 10px 6px;
-    font-size: 14px;
-    color: white;
-    text-decoration: none;
-    white-space: nowrap;
+    padding: 4px 8px;
+    font-size: 12px;
+    border-bottom: none;
+  }
+
+  .menu_icon, .close-btn {
+    display: none !important;
+  }
+
+  .header ul li:last-child a {
+    border-bottom: none;
+  }
+
+  .no-scroll {
+    overflow: hidden;
   }
 
   .header ul li a.active {
@@ -645,24 +652,15 @@ body{
     font-weight: 600;
   }
 
-  .header i {
+  .header i{
     color: #e5e5e5;
   }
 
-  .menu_icon,
-  .close-btn {
-    display: none !important;
-  }
-
-  .no-scroll {
-    overflow: hidden;
-  }
-
   .FirstElement {
-    padding-top: 10px; /* ✅ Reduced since header is now static */
+    padding-top: 80px;
   }
 
-  .profile-text {
+  .profile-text{
     padding: 0 1rem;
   }
 
@@ -671,7 +669,7 @@ body{
     gap: 12px;
     margin-top: 20px;
   }
-
+  
   .btn {
     width: 100%;
     text-align: center;
@@ -683,20 +681,17 @@ body{
     margin-bottom: 20px;
   }
 
-  .FirstElement .profile-text p {
+  .FirstElement .profile-text p{
     text-align: justify;
   }
-
-  .about {
+  .about{
     flex-direction: column;
   }
-
   .about-content,
   .about-skills {
     flex-basis: 100%;
     width: 100%;
   }
-
   .about-skills {
     margin-top: 30px;
   }
@@ -717,13 +712,12 @@ body{
   .project-content {
     padding: 40px 0;
   }
-
   .project {
     padding: 25px 20px;
     margin-bottom: 30px;
     line-height: 1.6;
   }
-
+  
   .project h4 {
     font-size: 22px;
     line-height: 1.4;
@@ -732,7 +726,7 @@ body{
     word-break: normal;
     hyphens: none;
   }
-
+  
   .project li {
     font-size: 15px;
     margin-bottom: 15px;
@@ -743,15 +737,16 @@ body{
   .project ul {
     padding-left: 20px;
   }
-
+  
   .project .btn-group {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 25px;
     justify-content: center;
-  }
 
+  }
+  
   .project .btn {
     flex: 1 1 120px;
     padding: 10px 5px;
@@ -776,7 +771,7 @@ body{
   }
 
   .skills-title h3 {
-    font-size: 32px;
+    font-size: 32px; /* Match other section titles */
     line-height: 1.2;
     margin-bottom: 15px;
   }
@@ -794,15 +789,15 @@ body{
     font-size: 14px;
     line-height: 1.5;
   }
-
+  
   h1 {
     font-size: 28px;
   }
-
+  
   h2 {
     font-size: 22px;
   }
-
+  
   h4 {
     font-size: 16px;
   }
