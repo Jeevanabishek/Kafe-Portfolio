@@ -632,13 +632,11 @@ body{
     z-index: 1000;
     height: auto;
     overflow-y: auto;
-    max-height: 100vh;
   }
 
   .header {
-    justify-content: left;
+    justify-content: center;
     padding: 0;
-    flex-direction: column;
   }
 
   .header ul{
@@ -692,7 +690,8 @@ body{
   }
 
   .FirstElement {
-    padding-top: 150px;
+   padding-top: 250px; /* Adjust this based on your nav height */
+    flex-direction: column;
   }
 
   .profile-text{
@@ -713,7 +712,7 @@ body{
   .FirstElement .profile-photo {
     width: 200px;
     height: 200px;
-    margin-bottom: 20px;
+    margin: 20px auto;
   }
 
   .FirstElement .profile-text p{
