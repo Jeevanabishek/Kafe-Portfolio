@@ -1,4 +1,7 @@
-$(document).ready(function() { 
+$(document).ready(function() {
+  // Scroll to top on page refresh
+  setTimeout(() => { $("html, body").scrollTop(0); }, 10);
+
   // Sticky header
   $(window).scroll(function() {
     if ($(this).scrollTop() > 1) {
@@ -10,32 +13,13 @@ $(document).ready(function() {
   });
 
   // Mobile menu functionality
-$('.menu_icon').click(function(e) {
-  e.preventDefault();
-  $('.navbar').addClass('show');
-  $('.close-btn').addClass('show');
-  $('.menu_icon').hide();
-  $('body').addClass('no-scroll');
-});
-
-// Close menu functionality
-$(document).on('click', '.close-btn', function(e) {
-  e.preventDefault();
-  $('.navbar').removeClass('show');
-  $('.close-btn').removeClass('show');
-  $('.menu_icon').show();
-  $('body').removeClass('no-scroll');
-});
-
-// Close menu when clicking on links (mobile only)
-$('.navbar li a').click(function() {
-  if ($(window).width() < 768) {
-    $('.navbar').removeClass('show');
-    $('.close-btn').removeClass('show');
-    $('.menu_icon').show();
-    $('body').removeClass('no-scroll');
-  }
-});
+  $('.menu_icon').click(function(e) {
+    e.preventDefault();
+    $('.navbar').addClass('show');
+    $('.close-btn').show();
+    $('.menu_icon').hide();
+    $('body').addClass('no-scroll');
+  });
 
   // Combined click handler for links and close button
   $('.navbar').on('click', 'li a, .close-btn', function(e) {
@@ -48,7 +32,7 @@ $('.navbar li a').click(function() {
       $('body').removeClass('no-scroll');
       return;
     }
-    
+
     // Handle menu links (only for mobile)
     if ($(window).width() < 768) {
       $('.navbar').removeClass('show');
@@ -56,33 +40,33 @@ $('.navbar li a').click(function() {
       $('.menu_icon').show();
       $('body').removeClass('no-scroll');
     }
-    
+
     // Handle smooth scrolling
     var target = $(this).attr("href");
-    if ($(target).hasClass("active-section")) return;
-    
     e.preventDefault();
+
     if (target === "#home") {
       $("html, body").animate({ scrollTop: 0 }, 500);
     } else {
       var offset = $(target).offset().top - 40;
       $("html, body").animate({ scrollTop: offset }, 500);
     }
-    
+
     $(".navbar li a").removeClass("active");
     $(this).addClass("active");
   });
 
-  // Initial content revealing js
+  // ScrollReveal animations
   ScrollReveal({ distance: "100px", duration: 2000, delay: 200 });
   ScrollReveal().reveal(".header a, .profile-photo, .about-content, .education", { origin: "left" });
   ScrollReveal().reveal(".header ul, .profile-text, .about-skills, .internship", { origin: "right" });
   ScrollReveal().reveal(".project-title, .contact-title", { origin: "top" });
-  ScrollReveal().reveal(".projects, .contact", { origin: "bottom" });
+  ScrollReveal().reveal(".projects", { origin: "bottom" });
+  ScrollReveal().reveal(".contact", { origin: "bottom" });
   ScrollReveal().reveal(".skills-title", { origin: "top" });
   ScrollReveal().reveal(".skill", { origin: "bottom" });
 
-  // Contact form
+  // Contact form submission to Google Sheet
   const scriptURL = 'https://script.google.com/macros/s/AKfycbzUSaaX3XmlE5m9YLOHOBrRuCh2Ohv49N9bs4bew7xPd1qlgpvXtnudDs5Xhp3jF-Fx/exec';
   const form = document.forms['submitToGoogleSheet'];
   const msg = document.getElementById("msg");
@@ -96,44 +80,31 @@ $('.navbar li a').click(function() {
         form.reset();
       })
       .catch(error => console.error('Error!', error.message));
-
-
   });
 
+  // Function to update active section on scroll
   function updateActiveSection() {
     var scrollPosition = $(window).scrollTop();
+
     if (scrollPosition === 0) {
       $(".navbar li a").removeClass("active");
       $(".navbar li a[href='#home']").addClass("active");
       return;
     }
-    
-    $("section").each(function() {
+
+    $("section[id]").each(function() {
       var target = $(this).attr("id");
       var offset = $(this).offset().top;
       var height = $(this).outerHeight();
-      
-      if (scrollPosition >= offset - 40 && scrollPosition < offset + height - 40) {
+
+      // Adjust threshold (-120) for better last-section highlighting
+      if (scrollPosition >= offset - 120 && scrollPosition < offset + height - 120) {
         $(".navbar li a").removeClass("active");
         $(".navbar li a[href='#" + target + "']").addClass("active");
       }
     });
   }
 
-$('#resumeBtn').click(function(e) {
-  e.preventDefault();
-  const driveUrl = $(this).attr('href');
-  
-  // Open in new tab for viewing
-  window.open(driveUrl, '_blank');
-  
-  // Force download (alternative method for Google Drive)
-  const downloadUrl = driveUrl.replace('/view?usp=sharing', '/export?format=pdf');
-  const link = document.createElement('a');
-  link.href = downloadUrl;
-  link.download = 'Jeevan_Abishek_Data_Analyst.pdf';
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-});
+  // Run once on page load
+  updateActiveSection();
 });
