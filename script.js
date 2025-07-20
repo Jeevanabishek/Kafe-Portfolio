@@ -12,6 +12,21 @@ $(document).ready(function() {
     updateActiveSection();
   });
 
+  // Smooth scrolling for nav links
+  $('.navbar').on('click', 'li a', function(e) {
+    var target = $(this).attr("href");
+    e.preventDefault();
+    if (target === "#home") {
+      $("html, body").animate({ scrollTop: 0 }, 500);
+    } else {
+      var offset = $(target).offset().top - 40;
+      $("html, body").animate({ scrollTop: offset }, 500);
+    }
+
+    $(".navbar li a").removeClass("active");
+    $(this).addClass("active");
+  });
+
   // Mobile menu functionality
   $('.menu_icon').click(function(e) {
     e.preventDefault();
