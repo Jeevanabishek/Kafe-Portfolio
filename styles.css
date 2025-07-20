@@ -635,8 +635,7 @@ body{
   }
 
   .header {
-    justify-content: center;
-    padding: 0;
+    justify-content: left;
   }
 
   .header ul{
@@ -690,8 +689,8 @@ body{
   }
 
   .FirstElement {
-   padding-top: 250px; /* Adjust this based on your nav height */
-    flex-direction: column;
+   padding-top: 80px; /* Adjust this based on your nav height */
+   flex-direction: column;
   }
 
   .profile-text{
@@ -711,7 +710,7 @@ body{
 
   .FirstElement .profile-photo {
     width: 200px;
-    height: 200px;
+    height: 100px;
     margin: 20px auto;
   }
 
