@@ -623,19 +623,40 @@ body{
   }
 
   .header-area {
-    padding: 15px 0;
+   padding: 10px 0;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     background-color: #3d3b3b;
     z-index: 1000;
-    height: auto;
-    overflow-y: auto;
   }
 
   .header {
-    justify-content: left;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .navbar li {
+    margin: 5px 8px;
+    text-align: center;
+    flex: 0 0 calc(50% - 16px); /* Two items per row */
+  }
+
+  .navbar li a {
+    display: block;
+    padding: 8px 0;
+    font-size: 16px;
+    white-space: nowrap;
   }
 
   .header ul{
@@ -689,8 +710,8 @@ body{
   }
 
   .FirstElement {
-   padding-top: 80px; /* Adjust this based on your nav height */
-   flex-direction: column;
+    padding-top: 120px; /* Reduced from 300px to account for compact nav */
+    flex-direction: column;
   }
 
   .profile-text{
@@ -709,14 +730,20 @@ body{
   }
 
   .FirstElement .profile-photo {
-    width: 200px;
-    height: 100px;
-    margin: 20px auto;
+    width: 180px;
+    height: 180px;
+    margin: 20px auto 0;
   }
 
   .FirstElement .profile-text p{
     text-align: justify;
   }
+
+  .profile-text {
+    padding: 20px 0 0;
+    text-align: center;
+  }
+  
   .about{
     flex-direction: column;
   }
