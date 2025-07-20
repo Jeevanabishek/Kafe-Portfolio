@@ -596,65 +596,61 @@ body{
     padding: 0 15px;
   }
 
-  .header-area {
-    padding: 15px 0;
-    position: fixed;
-  }
+ .header {
+  justify-content: center;
+  padding: 0;
+  overflow-x: auto; /* Enable horizontal scroll */
+}
 
-  .header {
-    justify-content: center;
-    padding: 0;
-  }
+.header ul {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping */
+  justify-content: flex-start; /* Start from left */
+  width: max-content; /* Fit content */
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  box-shadow: none;
+  list-style: none;
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+}
 
-  .header ul{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    padding: 0;
-    height: auto;
-    position: static;
-    background: transparent;
-    box-shadow: none;
-    transform: none;
-  }
+.header ul::-webkit-scrollbar {
+  display: none; /* Hide scrollbar in Webkit */
+}
 
-  .header ul.show {
-    display: flex;
-    transform: translateX(0);
-  }
+.header ul li {
+  flex: 0 0 auto; /* Prevent shrinking */
+  margin: 0 8px;
+  padding: 0;
+}
 
-  .header ul li {
-    margin: 0 5px;
-    padding: 0;
-  }
+.header ul li a {
+  display: inline-block;
+  padding: 10px 8px;
+  font-size: 14px;
+  text-decoration: none;
+  color: white;
+  white-space: nowrap;
+}
 
-  .header ul li a {
-    padding: 4px 8px;
-    font-size: 12px;
-    border-bottom: none;
-  }
+.header ul li a.active {
+  color: #fed700;
+  font-weight: 600;
+}
 
-  .menu_icon, .close-btn {
-    display: none !important;
-  }
+.menu_icon, .close-btn {
+  display: none !important;
+}
 
-  .header ul li:last-child a {
-    border-bottom: none;
-  }
+.no-scroll {
+  overflow: hidden;
+}
 
-  .no-scroll {
-    overflow: hidden;
-  }
+.header i {
+  color: #e5e5e5;
+}
 
-  .header ul li a.active {
-    color: #fed700;
-    font-weight: 600;
-  }
-
-  .header i{
-    color: #e5e5e5;
-  }
 
   .FirstElement {
     padding-top: 80px;
