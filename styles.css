@@ -633,14 +633,14 @@ body{
   }
 
   .header {
-    justify-content: center;
+    justify-content: right;
     padding: 0;
   }
 
   .header ul {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: right;
     row-gap: 10px;
     width: 100%;
     padding: 0;
@@ -660,7 +660,7 @@ body{
     width: 45%;
     margin: 5px;
     padding: 0;
-    text-align: center;
+    text-align: right;
   }
 
   .header ul li a {
