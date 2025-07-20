@@ -587,10 +587,8 @@ body{
 
  /*------------------- Responsive Design on small screen -------------------*/
 
-
 /* Mobile Layout */
-
- @media only screen and (max-width: 767px) {
+@media only screen and (max-width: 767px) {
   .container {
     width: 100%;
     max-width: none;
@@ -599,41 +597,36 @@ body{
 
   .header-area {
     padding: 10px 0;
-    position: static; /* Make header static */
-    top: auto;
-    left: auto;
+    position: static;
     width: 100%;
     z-index: auto;
     background-color: #3d3b3b;
+    margin-bottom: 80px; /* ✅ Space below navbar */
   }
 
   .header {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     padding: 0;
   }
 
   .header ul {
     display: flex;
-    flex-wrap: nowrap; /* Single row */
-    overflow-x: auto; /* Scroll if overflow */
-    justify-content: flex-start;
+    flex-wrap: wrap; /* ✅ Allow two rows */
+    justify-content: center;
     width: 100%;
     padding: 0;
     margin: 0;
     list-style: none;
     background: transparent;
     box-shadow: none;
-    scrollbar-width: none; /* Firefox */
-  }
-
-  .header ul::-webkit-scrollbar {
-    display: none; /* Chrome/Safari */
+    row-gap: 10px; /* ✅ Space between rows */
   }
 
   .header ul li {
-    flex: 0 0 auto;
-    margin: 0 8px;
+    width: 45%; /* ✅ Two items per row */
+    margin: 5px 0;
     padding: 0;
     text-align: center;
   }
@@ -666,7 +659,7 @@ body{
   }
 
   .FirstElement {
-    padding-top: 80px;
+    padding-top: 10px; /* ✅ Reduced since header is now static */
   }
 
   .profile-text {
