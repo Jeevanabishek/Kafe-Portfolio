@@ -41,10 +41,9 @@ $(document).ready(function() {
       $('body').removeClass('no-scroll');
     }
 
-    // Handle smooth scrolling
+    // Smooth scrolling
     var target = $(this).attr("href");
     e.preventDefault();
-
     if (target === "#home") {
       $("html, body").animate({ scrollTop: 0 }, 500);
     } else {
@@ -61,13 +60,11 @@ $(document).ready(function() {
   ScrollReveal().reveal(".header a, .profile-photo, .about-content, .education", { origin: "left" });
   ScrollReveal().reveal(".header ul, .profile-text, .about-skills, .internship", { origin: "right" });
   ScrollReveal().reveal(".project-title, .contact-title", { origin: "top" });
-  ScrollReveal().reveal(".projects", { origin: "bottom" });
-  ScrollReveal().reveal(".contact", { origin: "bottom" });
+  ScrollReveal().reveal(".projects, .contact, .skill", { origin: "bottom" });
   ScrollReveal().reveal(".skills-title", { origin: "top" });
-  ScrollReveal().reveal(".skill", { origin: "bottom" });
 
-  // Contact form submission to Google Sheet
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbzUSaaX3XmlE5m9YLOHOBrRuCh2Ohv49N9bs4bew7xPd1qlgpvXtnudDs5Xhp3jF-Fx/exec';
+  // Google Sheet contact form submission
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbyXSu1rLuouae6opWiDy8flfkpQcMOomKo_IXJ4NW6-vSZzveyMJGirKdK3_OfH8G1r/exec';
   const form = document.forms['submitToGoogleSheet'];
   const msg = document.getElementById("msg");
 
@@ -75,14 +72,20 @@ $(document).ready(function() {
     e.preventDefault();
     fetch(scriptURL, { method: 'POST', body: new FormData(form) })
       .then(response => {
-        msg.innerHTML = "Message sent successfully";
-        setTimeout(function() { msg.innerHTML = ""; }, 5000);
+        msg.style.color = "green";
+        msg.innerHTML = "✅ Message sent successfully!";
+        setTimeout(() => msg.innerHTML = "", 5000);
         form.reset();
       })
-      .catch(error => console.error('Error!', error.message));
+      .catch(error => {
+        console.error('Error!', error.message);
+        msg.style.color = "red";
+        msg.innerHTML = "❌ Failed to send message.";
+        setTimeout(() => msg.innerHTML = "", 5000);
+      });
   });
 
-  // Function to update active section on scroll
+  // Highlight active section on scroll
   function updateActiveSection() {
     var scrollPosition = $(window).scrollTop();
 
@@ -97,7 +100,6 @@ $(document).ready(function() {
       var offset = $(this).offset().top;
       var height = $(this).outerHeight();
 
-      // Adjust threshold (-120) for better last-section highlighting
       if (scrollPosition >= offset - 120 && scrollPosition < offset + height - 120) {
         $(".navbar li a").removeClass("active");
         $(".navbar li a[href='#" + target + "']").addClass("active");
@@ -105,6 +107,6 @@ $(document).ready(function() {
     });
   }
 
-  // Run once on page load
+  // Initial run
   updateActiveSection();
 });
