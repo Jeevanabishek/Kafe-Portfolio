@@ -623,7 +623,7 @@ body{
   }
 
   .header-area {
-    padding: 10px 0;
+    padding: 15px 0;
     position: fixed;
     top: 0;
     left: 0;
@@ -642,7 +642,6 @@ body{
     flex-wrap: wrap;
     justify-content: center;
     row-gap: 10px;
-    column-gap: 15px; /* Add horizontal gap between items */
     width: 100%;
     padding: 0;
     height: auto;
@@ -658,21 +657,20 @@ body{
   }
 
   .header ul li {
-    width: auto; /* Remove fixed width */
-    margin: 0; /* Reset margin */
+    width: 45%;
+    margin: 5px;
     padding: 0;
     text-align: center;
   }
 
   .header ul li a {
     display: block;
-    padding: 8px 12px; /* Adjust padding */
+    padding: 10px;
     font-size: 14px;
     border-bottom: none;
-    word-break: normal; /* Allow normal word breaking */
+    word-break: break-word;
     color: white;
     text-decoration: none;
-    white-space: nowrap; /* Prevent line breaks */
   }
 
   .header ul li a.active {
