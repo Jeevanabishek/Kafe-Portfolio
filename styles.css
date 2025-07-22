@@ -641,9 +641,10 @@ body{
   .header ul{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around; /* Equal spacing */
-    gap: 0; /* Remove gap for better control */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
     padding: 5px 0;
+    gap: 5px; /* Add small gap between items */
   }
 
   .header ul.show {
@@ -652,25 +653,29 @@ body{
   }
 
   .header ul li {
-    flex: 1; /* Each item takes equal space */
-    min-width: 25%; /* Ensure 4 items per row */
+    flex: 0 0 calc(25% - 10px); /* 25% width with gap adjustment */
+    min-width: 0; /* Allow text truncation */
     margin: 0;
     padding: 3px;
     text-align: center;
+    box-sizing: border-box;
   }
 
-  /* Second row - 3 items */
+  /* Second row items (skills, projects, contact) */
   .header ul li:nth-child(n+5) {
-    min-width: 33.33%; /* Ensure 3 items per row */
+    flex: 0 0 calc(33.33% - 10px); /* 33.33% width for 3 items */
   }
 
   .header ul li a {
-   display: block;
-   padding: 8px 5px;
-   font-size: 12px; /* Updated font size as requested */
-   white-space: nowrap;
-   overflow: hidden;
-   text-overflow: ellipsis;
+   .header ul li a {
+    display: block;
+    padding: 8px 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-radius: 4px; /* Optional: for better appearance */
+    background: rgba(255,255,255,0.1); /* Optional: better visibility */
   }
 
   .menu_icon, .close-btn {
@@ -695,7 +700,7 @@ body{
   }
 
   .FirstElement {
-   padding-top: 150px; /* Increased padding to account for two rows */
+  padding-top: 170px; /* Increased for two-row nav */
   }
 
   .profile-text{
